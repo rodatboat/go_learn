@@ -1,6 +1,6 @@
 Docker Redis:
->docker run -p 6379:6379 redis:latest
->docker ps
+>docker run --name redis -p 6379:6379 redis:latest
+>docker ps -a
 >docker exec -it <container_name_or_id> /bin/sh
 >redis-cli
 >docker stop <container_name_or_id>
