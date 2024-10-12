@@ -52,12 +52,6 @@ func (a *App) Start(ctx context.Context) error {
 		close(ch)
 	}()
 
-	ctx.Done()
-	err = <-ch
-	if err != nil {
-		return fmt.Errorf("failed to start server: %w", err)
-	}
-
 	select {
 	case err = <-ch:
 		return err
@@ -67,6 +61,4 @@ func (a *App) Start(ctx context.Context) error {
 
 		return server.Shutdown(timeout)
 	}
-
-	return nil
 }
