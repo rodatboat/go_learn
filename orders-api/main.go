@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	app := application.New()
+	app := application.New(application.LoadConfig())
 
 	ctx, cancel := signal.NotifyContext(context.Background(), os.Interrupt)
 	defer cancel() // defer means to call it at the end of the current function (last in, first out)
